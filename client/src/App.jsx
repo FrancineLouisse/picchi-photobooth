@@ -1,7 +1,7 @@
+import AppRoutes from "../src/routes/AppRoutes";
+
 function App() {
-  return (
-    <h1>Welcome to PicChi</h1>
-  );
+  return <AppRoutes />;
 }
 
 export default App;
