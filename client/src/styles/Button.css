@@ -1,0 +1,26 @@
+.primary-btn{
+    border:none;
+    outline:none;
+    cursor:pointer;
+    width:340px;
+    height:90px;
+    border-radius:60px;
+    background:#F56BAE;
+    color:white;
+    font-size:2rem;
+    font-weight:700;
+    letter-spacing:4px;
+    transition:.25s;
+    box-shadow:
+    0 15px 20px rgba(0,0,0,.25);
+}
+
+.primary-btn:hover{
+    transform:translateY(-5px);
+
+}
+
+.primary-btn:active{
+    transform:translateY(2px);
+
+}
