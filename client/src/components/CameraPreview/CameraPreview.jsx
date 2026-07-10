@@ -1,57 +1,92 @@
 import "./CameraPreview.css";
 
-import { useEffect,useRef,useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import Countdown from "../Countdown/Countdown";
 
-function CameraPreview({capture,onCapture}){
+function CameraPreview({
+    isCapturing,
+    currentShot,
+    onCapture
+}) {
 
-    const videoRef=useRef();
+    const videoRef = useRef(null);
+    const canvasRef = useRef(null);
 
-    const canvasRef=useRef();
+    const [countdown, setCountdown] = useState(null);
 
-    const [countdown,setCountdown]=useState(null);
+    /* ---------------- Open Camera ---------------- */
 
-    useEffect(()=>{
+    useEffect(() => {
 
-        async function openCamera(){
+        let stream;
 
-            const stream=await navigator.mediaDevices.getUserMedia({
+        async function openCamera() {
 
-                video:{
-                    width:{ideal:1280},
-                    height:{ideal:960}
-                },
+            try {
 
-                audio:false
+                stream = await navigator.mediaDevices.getUserMedia({
 
-            });
+                    video: {
+                        width: { ideal: 1280 },
+                        height: { ideal: 960 },
+                        facingMode: "user"
+                    },
 
-            videoRef.current.srcObject=stream;
+                    audio: false
+
+                });
+
+                if (videoRef.current) {
+
+                    videoRef.current.srcObject = stream;
+
+                }
+
+            }
+
+            catch (err) {
+
+                console.error(err);
+
+            }
 
         }
 
         openCamera();
 
-    },[]);
+        return () => {
 
-    useEffect(()=>{
+            if (stream) {
 
-        if(!capture) return;
+                stream.getTracks().forEach(track => track.stop());
 
-        let value=3;
+            }
+
+        }
+
+    }, []);
+
+    /* ---------------- Countdown ---------------- */
+
+    useEffect(() => {
+
+        if (!isCapturing) return;
+
+        let value = 3;
 
         setCountdown(value);
 
-        const interval=setInterval(()=>{
+        const interval = setInterval(() => {
 
             value--;
 
-            if(value>0){
+            if (value > 0) {
 
                 setCountdown(value);
 
             }
 
-            else{
+            else {
 
                 clearInterval(interval);
 
@@ -61,43 +96,50 @@ function CameraPreview({capture,onCapture}){
 
             }
 
-        },1000);
+        }, 1000);
 
-    },[capture]);
+        return () => clearInterval(interval);
 
-    function capturePhoto(){
+    }, [currentShot, isCapturing]);
 
-        const canvas=canvasRef.current;
+    /* ---------------- Capture ---------------- */
 
-        const video=videoRef.current;
+    function capturePhoto() {
 
-        const ctx=canvas.getContext("2d");
+        const video = videoRef.current;
 
-        canvas.width=video.videoWidth;
+        const canvas = canvasRef.current;
 
-        canvas.height=video.videoHeight;
+        if (!video || !canvas) return;
 
-        ctx.drawImage(
+        const ctx = canvas.getContext("2d");
 
-            video,
+        canvas.width = video.videoWidth;
+        canvas.height = video.videoHeight;
 
-            0,
+ctx.save();
 
-            0,
+ctx.translate(canvas.width, 0);
 
-            canvas.width,
+ctx.scale(-1, 1);
 
-            canvas.height
+ctx.drawImage(
+    video,
+    0,
+    0,
+    canvas.width,
+    canvas.height
+);
 
-        );
+ctx.restore();
 
-        const image=canvas.toDataURL("image/png");
+        const image = canvas.toDataURL("image/png");
 
         onCapture(image);
 
     }
 
-    return(
+    return (
 
         <div className="camera-preview">
 
@@ -117,13 +159,9 @@ function CameraPreview({capture,onCapture}){
 
             {
 
-                countdown &&
+                countdown !== null &&
 
-                <div className="countdown">
-
-                    {countdown}
-
-                </div>
+                <Countdown number={countdown} />
 
             }
 
@@ -131,13 +169,13 @@ function CameraPreview({capture,onCapture}){
 
                 ref={canvasRef}
 
-                style={{display:"none"}}
+                style={{ display: "none" }}
 
             />
 
         </div>
 
-    )
+    );
 
 }
 

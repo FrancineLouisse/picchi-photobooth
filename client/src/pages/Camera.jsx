@@ -1,71 +1,154 @@
 import "../styles/Camera.css";
 
 import { useState } from "react";
+import { FiRefreshCw } from "react-icons/fi";
 
 import Button from "../components/Button";
 import CameraPreview from "../components/CameraPreview/CameraPreview";
-import Countdown from "../components/Countdown/Countdown";
 import PhotoThumbnail from "../components/PhotoThumbnail/PhotoThumbnail";
-import bg from "../assets/images/picchi bg.png"
+
+import bg from "../assets/images/picchi bg.png";
 
 function Camera() {
+const [photos, setPhotos] = useState([null, null, null, null]);
 
-    const [photos] = useState([null, null, null, null]);
+const [isCapturing, setIsCapturing] = useState(false);
 
-    return (
+const [currentShot, setCurrentShot] = useState(0);
 
-        <main
-            className="camera-page"
-            style={{
-                backgroundImage: `url(${bg})`
-            }}
-        >
+const [captureComplete, setCaptureComplete] = useState(false);
 
-            <h1 className="camera-title">
+  function startCapture() {
 
-                <span>Say Cheese, </span>
+      if (isCapturing) return;
 
-                <span className="pink">
+      setPhotos([null, null, null, null]);
 
-                    Say PicChi!
+      setCurrentShot(0);
 
-                </span>
+      setCaptureComplete(false);
 
-            </h1>
+      setIsCapturing(true);
 
-            <section className="camera-container">
+  }
 
-                <CameraPreview />
+  function handleCapture(image) {
+    setPhotos((prev) => {
+      const updated = [...prev];
+      updated[currentShot] = image;
+      return updated;
+    });
 
-            </section>
+    // Last photo
+    if (currentShot === 3) {
 
-            <Button>
+        setIsCapturing(false);
 
-                START
+        setCaptureComplete(true);
 
-            </Button>
+    }
+    else {
 
-            <section className="thumbnail-container">
+        setCurrentShot(prev => prev + 1);
 
-                {
+    }
+      }
 
-                    photos.map((photo,index)=>(
+  function redoCapture() {
 
-                        <PhotoThumbnail
-                            key={index}
-                            photo={photo}
-                        />
+      setPhotos([null, null, null, null]);
 
-                    ))
+      setCurrentShot(0);
 
-                }
+      setCaptureComplete(false);
 
-            </section>
+      setIsCapturing(false);
 
-        </main>
+  }
+  return (
+    <main
+      className="camera-page"
+      style={{
+        backgroundImage: `url(${bg})`,
+      }}
+    >
+      <h1 className="camera-title">
+        <span>Say Cheese, </span>
 
-    );
+        <span className="pink">Say PicChi!</span>
+      </h1>
 
+      <section className="camera-container">
+        <CameraPreview
+          isCapturing={isCapturing}
+          currentShot={currentShot}
+          onCapture={handleCapture}
+        />
+      </section>
+
+      {/* <Button
+        onClick={startCapture}
+        disabled={isCapturing}
+      >
+        {isCapturing
+          ? `Capturing ${currentShot + 1}/4`
+          : "START"}
+      </Button> */}
+      {
+      !captureComplete ? (
+
+              <Button
+                  onClick={startCapture}
+                  disabled={isCapturing}
+              >
+                  {isCapturing
+                      ? `Capturing ${currentShot + 1}/4`
+                      : "START"}
+              </Button>
+
+          ) : (
+
+              <div className="camera-actions">
+
+                  <Button
+                      onClick={() =>
+                          navigate("/preview", {
+                              state: { photos }
+                          })
+                      }
+                  >
+                      GO TO PREVIEW
+                  </Button>
+
+                  {/* <button
+                      className="redo-btn"
+                      onClick={redoCapture}
+                      aria-label="Redo"
+                  >
+                      <FiRefreshCw />
+                  </button> */}
+                  <button
+    className="redo-btn"
+    onClick={redoCapture}
+>
+    ↻
+</button>
+
+              </div>
+
+          )
+      }
+
+      <section className="thumbnail-container">
+        {photos.map((photo, index) => (
+          <PhotoThumbnail
+            key={index}
+            photo={photo}
+          />
+        ))}
+      </section>
+    </main>
+  );
 }
 
 export default Camera;

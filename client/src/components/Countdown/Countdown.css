@@ -1,11 +1,25 @@
 .countdown{
 
+    position:absolute;
+
+    inset:0;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
     font-size:8rem;
+
+    color:white;
 
     font-weight:700;
 
-    color:#8B63D6;
+    background:rgba(0,0,0,.15);
 
-    user-select:none;
+    text-shadow:0 0 12px black;
+
+    z-index:100;
 
 }
