@@ -28,8 +28,9 @@ function Home() {
         />
 
         <h2 className="tagline">
-          Snap the Cuteness!
+          PHOTOBOOTH
         </h2>
+        <h3>by Chin</h3>
 
         <Button onClick={() => navigate("/camera")}>
           START

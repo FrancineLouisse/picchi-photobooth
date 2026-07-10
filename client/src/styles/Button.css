@@ -2,12 +2,12 @@
     border:none;
     outline:none;
     cursor:pointer;
-    width:340px;
-    height:90px;
+    width:25vh;
+    height:8vh;
     border-radius:60px;
     background:#F56BAE;
     color:white;
-    font-size:2rem;
+    font-size:1rem;
     font-weight:700;
     letter-spacing:4px;
     transition:.25s;
