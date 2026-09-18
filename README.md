@@ -1,11 +1,9 @@
 # Picchi
-A web-based photo booth application.
+A web-based photobooth application.
 
 ## Features
-
 - 4-shot camera
-- Custom frames
+- Custom frame color
+- Stickers attachment
+- Image Filters
 - Download
-- Print
-
-## UNFINISHED
