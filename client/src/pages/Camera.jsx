@@ -127,11 +127,10 @@ function Camera() {
                       <FiRefreshCw />
                   </button> */}
                   <button
-    className="redo-btn"
-    onClick={redoCapture}
->
-    ↻
-</button>
+                    className="redo-btn"
+                    onClick={redoCapture}>
+                      ↻
+                  </button>
 
               </div>
 
