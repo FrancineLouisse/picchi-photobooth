@@ -1,5 +1,5 @@
 function Dashboard() {
-  return <h1>Camera Page</h1>;
+  return <h1>Dashboard</h1>;
 }
 
 export default Dashboard;
