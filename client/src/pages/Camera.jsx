@@ -1,7 +1,6 @@
 import "../styles/Camera.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { FiRefreshCw } from "react-icons/fi";
 import Button from "../components/Button";
 import CameraPreview from "../components/CameraPreview/CameraPreview";
 import PhotoThumbnail from "../components/PhotoThumbnail/PhotoThumbnail";
