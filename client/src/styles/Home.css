@@ -1,0 +1,114 @@
+.home {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+    background: #FDF8FA;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.home-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    z-index: 2;
+}
+
+.logo {
+    width: 550px;
+    user-select: none;
+}
+
+.tagline {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #FFC84D;
+    text-shadow: 0 6px 10px rgba(0,0,0,.18);
+}
+
+
+/* ---------------- Floating Decorations ---------------- */
+.float {
+    position: absolute;
+    animation: floating 4s ease-in-out infinite;
+    user-select: none;
+    pointer-events: none;
+}
+
+.camera {
+    width: 150px;
+    top: 70px;
+    left: 90px;
+}
+
+.stars {
+    width: 140px;
+    top: 70px;
+    right: 100px;
+}
+
+.smile {
+    width: 140px;
+    bottom: 70px;
+    left: 80px;
+}
+
+.polaroid {
+    width: 220px;
+    bottom: 60px;
+    right: 70px;
+}
+
+/* ---------------- Animation ---------------- */
+
+@keyframes floating {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-12px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+/* ===========================
+   Mobile Responsive
+=========================== */
+
+@media (max-width: 768px) {
+    .camera,
+    .stars,
+    .smile,
+    .polaroid {
+        display: none;
+    }
+
+    .logo {
+        width: 90%;
+        max-width: 420px;
+    }
+
+    .tagline {
+        font-size: 2rem;
+        text-align: center;
+    }
+
+    .home-content {
+        padding: 0 24px;
+        gap: 20px;
+    }
+
+    .primary-btn {
+        width: 100%;
+        max-width: 320px;
+        height: 70px;
+        font-size: 1.5rem;
+    }
+
+}

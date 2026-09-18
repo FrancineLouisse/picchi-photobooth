@@ -1,0 +1,151 @@
+.camera-page{
+    min-height:100vh;
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:3vh;
+    padding:1vh;
+}
+
+.camera-title{
+    font-size:2rem;
+    font-weight:800;
+}
+
+.camera-title span:first-child{
+    color:#8C63D6;
+}
+
+.camera-title .pink{
+    color:#F45DA8;
+}
+
+.camera-container {
+    width: min(500px);
+    aspect-ratio: 4 / 3;
+    display: flex;
+}
+
+.camera-preview {
+    width: 100%;
+    height: 100%;
+
+    border: 12px solid #F45DA8;
+    border-radius: 4px;
+
+    overflow: hidden;
+
+    background: #D9F1FF;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+}
+
+.countdown{
+    font-size:8rem;
+    color:#8C63D6;
+    font-weight:700;
+}
+
+.thumbnail-container{
+    display:flex;
+    gap:20px;
+}
+
+.thumbnail{
+    width:170px;
+    height:120px;
+    border:4px solid #8C63D6;
+    background:#D7F0FF;
+}
+
+.thumbnail img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.camera-actions{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:20px;
+
+}
+
+.redo-btn{
+
+    width:72px;
+
+    height:72px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#8C63D6;
+
+    color:white;
+
+    font-size:2rem;
+
+    cursor:pointer;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    transition:.25s;
+
+    box-shadow:0 10px 18px rgba(0,0,0,.25);
+
+}
+
+.redo-btn:hover{
+
+    transform:translateY(-4px);
+
+}
+
+.redo-btn:active{
+
+    transform:translateY(2px);
+
+}
+
+@media (max-width:768px){
+    .camera-title{
+        font-size:2rem;
+        text-align:center;
+    }
+
+    .camera-container{
+        width:100%;
+        height:300px;
+    }
+
+    .thumbnail-container{
+        width:100%;
+        justify-content:center;
+        flex-wrap:wrap;
+    }
+
+    .thumbnail{
+        width:130px;
+        height:90px;
+    }
+
+}
