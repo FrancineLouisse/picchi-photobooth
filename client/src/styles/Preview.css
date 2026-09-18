@@ -470,28 +470,216 @@
 /* =========================
    RESPONSIVE
 ========================= */
+/* =====================================================
+   MOBILE RESPONSIVE PREVIEW
+===================================================== */
 
-@media (max-height: 750px) {
+@media (max-width: 768px) {
+
+  /* Allow the page to scroll on mobile */
+  .preview-page {
+    width: 100%;
+    min-height: 100vh;
+    height: auto;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
 
   .preview-content {
-    padding-top: 15px;
-    padding-bottom: 15px;
+    width: 100%;
+    min-height: 100vh;
+    height: auto;
+
+    padding: 20px 15px 30px;
+
+    box-sizing: border-box;
+
+    overflow: visible;
   }
+
+
+  /* =========================
+     TITLE
+  ========================= */
 
   .preview-title {
-    margin-bottom: 10px;
+    font-size: 30px;
+
+    margin: 5px 0 20px;
+
+    text-align: center;
   }
 
+
+  /* =========================
+     STRIP + EDITOR
+  ========================= */
+
+  .preview-editor-layout {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: flex-start;
+
+    gap: 25px;
+
+    overflow: visible;
+
+    flex: none;
+  }
+
+
+  /* =========================
+     PHOTO STRIP
+  ========================= */
+
+  .photobooth-strip {
+    /*
+      Keep the 2:6 ratio.
+      Width is based on the mobile screen.
+    */
+
+    width: min(55vw, 220px);
+    height: auto;
+
+    aspect-ratio: 1 / 3;
+
+    flex-shrink: 0;
+  }
+
+
+  /* =========================
+     EDITOR
+  ========================= */
+
   .editor {
-    padding: 18px 25px;
+    width: 100%;
+    max-width: 600px;
+
+    max-height: none;
+
+    padding: 25px 20px;
+
+    box-sizing: border-box;
+
+    border-radius: 25px;
+
+    gap: 25px;
+
+    overflow: visible;
+
+    flex-shrink: 0;
+  }
+
+
+  .editor-section h2 {
+    font-size: 22px;
+  }
+
+
+  /* =========================
+     COLOR OPTIONS
+  ========================= */
+
+  .color-options {
+    justify-content: flex-start;
+
+    flex-wrap: wrap;
+
     gap: 12px;
   }
 
-  .editor-section h2 {
-    margin-bottom: 6px;
+  .color-option {
+    width: 50px;
+    height: 50px;
   }
 
+
+  /* =========================
+     FILTER OPTIONS
+  ========================= */
+
+  .filter-options {
+    width: 100%;
+
+    overflow-x: auto;
+
+    padding: 5px 3px 10px;
+
+    gap: 12px;
+
+    justify-content: flex-start;
+
+    scrollbar-width: none;
+  }
+
+  .filter-options::-webkit-scrollbar {
+    display: none;
+  }
+
+  .filter-option {
+    flex-shrink: 0;
+  }
+
+  .filter-preview {
+    width: 75px;
+    height: 70px;
+  }
+
+
+  /* =========================
+     STICKER OPTIONS
+  ========================= */
+
+  .sticker-options {
+    width: 100%;
+
+    overflow-x: auto;
+
+    padding: 5px 3px 10px;
+
+    gap: 12px;
+
+    justify-content: flex-start;
+
+    scrollbar-width: none;
+  }
+
+  .sticker-options::-webkit-scrollbar {
+    display: none;
+  }
+
+  .sticker-option {
+    flex-shrink: 0;
+  }
+
+  .sticker-preview {
+    width: 75px;
+    height: 70px;
+  }
+
+
+  /* =========================
+     ACTION BUTTONS
+  ========================= */
+
   .preview-actions {
-    margin-top: 8px;
+    width: 100%;
+
+    margin-top: 25px;
+
+    gap: 12px;
+
+    flex-shrink: 0;
+  }
+
+  .preview-actions button {
+    flex: 1;
+
+    max-width: 180px;
   }
 }
