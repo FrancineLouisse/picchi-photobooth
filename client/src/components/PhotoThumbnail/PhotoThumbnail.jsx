@@ -7,18 +7,13 @@ function PhotoThumbnail({ photo }) {
         <div className="thumbnail">
 
             {
-
                 photo ?
-
                 <img
                     src={photo}
                     alt="Captured"
                 />
-
                 :
-
                 null
-
             }
 
         </div>
