@@ -1,5 +1,4 @@
 # Picchi
-
 A web-based photo booth application.
 
 ## Features
@@ -9,4 +8,4 @@ A web-based photo booth application.
 - Download
 - Print
 
-Built using React and Express.
+## UNFINISHED
