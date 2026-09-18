@@ -1,0 +1,685 @@
+.preview-page {
+  width: 100%;
+  height: 100vh;
+
+  overflow: hidden;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  box-sizing: border-box;
+}
+
+.preview-content {
+  width: 100%;
+  height: 100vh;
+
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: 20px 40px;
+
+  overflow: hidden;
+}
+
+.preview-title {
+  margin: 0 0 15px;
+
+  font-size: clamp(28px, 4vh, 42px);
+  line-height: 1;
+
+  flex-shrink: 0;
+}
+
+.preview-title span {
+  color: #f970aa;
+}
+
+
+/* =========================
+   PHOTOBOOTH STRIP
+========================= */
+
+.photobooth-strip {
+  position: relative;
+
+  width: 300px;
+  aspect-ratio: 2 / 6;
+
+  background: #ffffff;
+
+  padding: 8px;
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+
+/* =========================
+   FOUR PHOTOS
+========================= */
+
+.photos-container {
+  width: 100%;
+  height: calc(100% - 8%);
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 1%;
+
+  padding: 2%;
+
+  box-sizing: border-box;
+}
+
+.strip-photo {
+  width: 100%;
+
+  flex: 1;
+
+  min-height: 0;
+
+  overflow: hidden;
+
+  position: relative;
+}
+
+.strip-photo img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+}
+
+/* =========================
+   FOOTER / LOGO
+========================= */
+
+.strip-footer {
+  position: absolute;
+
+  bottom: 0;
+  left: 0;
+
+  width: 100%;
+  height: 8%;
+
+  background: transparent;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+
+  padding: 2% 4%;
+
+  box-sizing: border-box;
+
+  z-index: 6;
+}
+
+.picchi-logo {
+  width: 25%;
+
+  height: auto;
+
+  object-fit: contain;
+}
+
+
+/* =========================
+   BUTTONS
+========================= */
+
+.preview-actions {
+  flex-shrink: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  gap: 15px;
+
+  margin-top: 15px;
+}
+.preview-actions button {
+  border: none;
+
+  padding: 12px 24px;
+
+  border-radius: 8px;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.back-btn {
+  background: #ffffff;
+  color: #333;
+}
+
+.download-btn {
+  background: #ff6fae;
+  color: #ffffff;
+}
+
+/* =========================
+   PREVIEW EDITOR LAYOUT
+========================= */
+
+.preview-editor-layout {
+  width: 100%;
+  flex: 1;
+
+  min-height: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: clamp(40px, 7vw, 100px);
+
+  overflow: hidden;
+}
+
+/* =========================
+   EDITOR PANEL
+========================= */
+
+.editor {
+  width: min(600px, 45vw);
+
+  max-height: 100%;
+
+  padding: clamp(20px, 3vh, 35px);
+
+  box-sizing: border-box;
+
+  border: 3px solid #111;
+  border-radius: 30px;
+
+  background: rgba(255, 255, 255, 0.82);
+
+  display: flex;
+  flex-direction: column;
+
+  gap: clamp(12px, 2vh, 25px);
+
+  overflow: hidden;
+
+  flex-shrink: 1;
+}
+
+.editor-section {
+  flex-shrink: 0;
+}
+
+.editor-section h2 {
+  margin: 0 0 10px;
+
+  font-size: clamp(18px, 3vh, 26px);
+
+}
+
+
+/* =========================
+   STRIP COLORS
+========================= */
+
+.color-options {
+  display: flex;
+  align-items: center;
+  gap: clamp(10px, 1.5vw, 18px);
+}
+
+.color-option {
+  width: clamp(45px, 6vh, 58px);
+  height: clamp(45px, 6vh, 58px);
+
+  border-radius: 50%;
+
+  border: 3px solid #111;
+
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+}
+
+.color-option.selected {
+  outline: 3px solid #ffffff;
+  outline-offset: -7px;
+}
+
+.checkmark {
+  font-size: clamp(24px, 4vh, 32px);
+  font-weight: bold;
+  color: #111;
+}
+
+
+/* =========================
+   FILTERS
+========================= */
+
+.filter-options {
+  display: flex;
+  gap: 15px;
+}
+
+.filter-option {
+  border: none;
+  background: transparent;
+
+  cursor: pointer;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 5px;
+
+  font-size: 14px;
+}
+
+.filter-preview {
+  width: 85px;
+  height: 80px;
+
+  border-radius: 8px;
+
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      135deg,
+      #8fd0fa,
+      #9a79cc,
+      #f970aa
+    );
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.filter-sample {
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.filter-option.selected .filter-preview {
+  outline: 3px solid #f970aa;
+  outline-offset: 3px;
+}
+
+
+/* =========================
+   FILTER EFFECTS
+========================= */
+
+.filter-none {
+  filter: none;
+}
+
+.filter-mono {
+  filter: grayscale(1);
+}
+
+.filter-retro {
+  filter:
+    sepia(0.35)
+    saturate(1.4)
+    contrast(1.05);
+}
+
+.filter-vintage {
+  filter:
+    sepia(0.25)
+    saturate(0.8)
+    contrast(0.9)
+    brightness(1.05);
+}
+
+.filter-warm {
+  filter:
+    sepia(0.15)
+    saturate(1.3)
+    brightness(1.05);
+}
+
+
+/* =========================
+   STICKERS
+========================= */
+
+
+.sticker-options {
+  display: flex;
+
+  gap: clamp(8px, 1vw, 15px);
+}
+
+.sticker-option {
+  border: none;
+  background: transparent;
+
+  cursor: pointer;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 4px;
+
+  padding: 0;
+
+  font-size: 13px;
+}
+
+.sticker-preview {
+  width: clamp(65px, 8vw, 85px);
+  height: clamp(60px, 10vh, 80px);
+
+  border-radius: 8px;
+
+  background: #ffffff;
+
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sticker-preview img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+}
+
+.sticker-option.selected .sticker-preview {
+  outline: 3px solid #f970aa;
+  outline-offset: 3px;
+}
+
+
+/* =========================
+   STICKER ON PHOTO STRIP
+========================= */
+
+.photobooth-strip {
+  /*
+    2 x 6 ratio
+
+    width : height
+    1     : 3
+  */
+
+  height: min(
+    calc(100vh - 130px),
+    560px
+  );
+
+  width: auto;
+
+  aspect-ratio: 1 / 3;
+
+  flex-shrink: 0;
+
+  position: relative;
+
+  box-sizing: border-box;
+
+  overflow: hidden;
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.strip-sticker {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: fill;
+
+  pointer-events: none;
+
+  z-index: 5;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+/* =====================================================
+   MOBILE RESPONSIVE PREVIEW
+===================================================== */
+
+@media (max-width: 768px) {
+
+  /* Allow the page to scroll on mobile */
+  .preview-page {
+    width: 100%;
+    min-height: 100vh;
+    height: auto;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  .preview-content {
+    width: 100%;
+    min-height: 100vh;
+    height: auto;
+
+    padding: 20px 15px 30px;
+
+    box-sizing: border-box;
+
+    overflow: visible;
+  }
+
+
+  /* =========================
+     TITLE
+  ========================= */
+
+  .preview-title {
+    font-size: 30px;
+
+    margin: 5px 0 20px;
+
+    text-align: center;
+  }
+
+
+  /* =========================
+     STRIP + EDITOR
+  ========================= */
+
+  .preview-editor-layout {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: flex-start;
+
+    gap: 25px;
+
+    overflow: visible;
+
+    flex: none;
+  }
+
+
+  /* =========================
+     PHOTO STRIP
+  ========================= */
+
+  .photobooth-strip {
+    /*
+      Keep the 2:6 ratio.
+      Width is based on the mobile screen.
+    */
+
+    width: min(55vw, 220px);
+    height: auto;
+
+    aspect-ratio: 1 / 3;
+
+    flex-shrink: 0;
+  }
+
+
+  /* =========================
+     EDITOR
+  ========================= */
+
+  .editor {
+    width: 100%;
+    max-width: 600px;
+
+    max-height: none;
+
+    padding: 25px 20px;
+
+    box-sizing: border-box;
+
+    border-radius: 25px;
+
+    gap: 25px;
+
+    overflow: visible;
+
+    flex-shrink: 0;
+  }
+
+
+  .editor-section h2 {
+    font-size: 22px;
+  }
+
+
+  /* =========================
+     COLOR OPTIONS
+  ========================= */
+
+  .color-options {
+    justify-content: flex-start;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+  }
+
+  .color-option {
+    width: 50px;
+    height: 50px;
+  }
+
+
+  /* =========================
+     FILTER OPTIONS
+  ========================= */
+
+  .filter-options {
+    width: 100%;
+
+    overflow-x: auto;
+
+    padding: 5px 3px 10px;
+
+    gap: 12px;
+
+    justify-content: flex-start;
+
+    scrollbar-width: none;
+  }
+
+  .filter-options::-webkit-scrollbar {
+    display: none;
+  }
+
+  .filter-option {
+    flex-shrink: 0;
+  }
+
+  .filter-preview {
+    width: 75px;
+    height: 70px;
+  }
+
+
+  /* =========================
+     STICKER OPTIONS
+  ========================= */
+
+  .sticker-options {
+    width: 100%;
+
+    overflow-x: auto;
+
+    padding: 5px 3px 10px;
+
+    gap: 12px;
+
+    justify-content: flex-start;
+
+    scrollbar-width: none;
+  }
+
+  .sticker-options::-webkit-scrollbar {
+    display: none;
+  }
+
+  .sticker-option {
+    flex-shrink: 0;
+  }
+
+  .sticker-preview {
+    width: 75px;
+    height: 70px;
+  }
+
+
+  /* =========================
+     ACTION BUTTONS
+  ========================= */
+
+  .preview-actions {
+    width: 100%;
+
+    margin-top: 25px;
+
+    gap: 12px;
+
+    flex-shrink: 0;
+  }
+
+  .preview-actions button {
+    flex: 1;
+
+    max-width: 180px;
+  }
+}

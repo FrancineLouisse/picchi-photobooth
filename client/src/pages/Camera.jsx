@@ -1,22 +1,20 @@
 import "../styles/Camera.css";
-
 import { useState } from "react";
-import { FiRefreshCw } from "react-icons/fi";
-
+import { useNavigate } from "react-router-dom";
 import Button from "../components/Button";
 import CameraPreview from "../components/CameraPreview/CameraPreview";
 import PhotoThumbnail from "../components/PhotoThumbnail/PhotoThumbnail";
-
 import bg from "../assets/images/picchi bg.png";
 
 function Camera() {
-const [photos, setPhotos] = useState([null, null, null, null]);
+  const navigate = useNavigate();
+  const [photos, setPhotos] = useState([null, null, null, null]);
 
-const [isCapturing, setIsCapturing] = useState(false);
+  const [isCapturing, setIsCapturing] = useState(false);
 
-const [currentShot, setCurrentShot] = useState(0);
+  const [currentShot, setCurrentShot] = useState(0);
 
-const [captureComplete, setCaptureComplete] = useState(false);
+  const [captureComplete, setCaptureComplete] = useState(false);
 
   function startCapture() {
 
@@ -110,15 +108,15 @@ const [captureComplete, setCaptureComplete] = useState(false);
 
               <div className="camera-actions">
 
-                  <Button
-                      onClick={() =>
-                          navigate("/preview", {
-                              state: { photos }
-                          })
-                      }
-                  >
-                      GO TO PREVIEW
-                  </Button>
+                <Button
+                  onClick={() =>
+                    navigate("/preview", {
+                      state: { photos },
+                    })
+                  }
+                >
+                  GO TO PREVIEW
+                </Button>
 
                   {/* <button
                       className="redo-btn"
@@ -128,11 +126,10 @@ const [captureComplete, setCaptureComplete] = useState(false);
                       <FiRefreshCw />
                   </button> */}
                   <button
-    className="redo-btn"
-    onClick={redoCapture}
->
-    ↻
-</button>
+                    className="redo-btn"
+                    onClick={redoCapture}>
+                      ↻
+                  </button>
 
               </div>
 
