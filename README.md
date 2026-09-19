@@ -3,7 +3,7 @@
 > A modern, interactive web-based photobooth experience designed for capturing, customizing, and downloading memorable moments.
 
 <p align="center">
-  <img src="src/assets/logo/favicon.png" alt="PicChi Photobooth Logo" width="120">
+  <img src="/client/src/assets/logo/logo.png" alt="PicChi Photobooth Logo" width="120">
 </p>
 
 <p align="center">
