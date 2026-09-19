@@ -18,13 +18,6 @@
 
 ---
 
-## 🌐 Live Demo
-
-**Try PicChi Photobooth:**
-https://picchi-photobooth.vercel.app/
-
----
-
 ## 📖 About the Project
 
 **PicChi Photobooth** is a web-based photobooth application created to provide a fun and interactive way to take photos, customize photo strips, and create memorable digital keepsakes.
